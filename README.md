@@ -6,3 +6,5 @@ Prosty projekt w Pythonie z podstawowymi funkcjami kalkulatora.
 
 ```bash
 python main.py
+
+![Testy](https://github.com/PiotruOlasik/python-calculator/actions/workflows/python-tests.yml/badge.svg)
