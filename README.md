@@ -1,6 +1,6 @@
 # Python Calculator
 
-Prosty projekt w Pythonie z podstawowymi funkcjami kalkulatora.
+Prosty projekt w Pythonie z podstawowymi funkcjami kalkulatora. Oraz automatyzacja.
 
 ## Jak uruchomić
 
