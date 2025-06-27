@@ -1,15 +1,27 @@
 pipeline {
     agent any
+
     stages {
-        
-        stage('Install dependencies') {
+        stage('Clone') {
             steps {
-                sh 'pip install -r requirements.txt'
+                sh 'rm -rf python-calculator'
+                sh 'git clone https://github.com/Grzywocz-W/python-calculator.git'
             }
         }
+
+        stage('Install dependencies') {
+            steps {
+                dir('python-calculator') {
+                    sh 'pip install -r requirements.txt'
+                }
+            }
+        }
+
         stage('Run tests') {
             steps {
-                sh 'pytest'
+                dir('python-calculator') {
+                    sh 'pytest'
+                }
             }
         }
     }
