@@ -16,6 +16,7 @@ def divide(a, b):
         raise ValueError("Nie można dzielić przez zero!")
     return a / b
 
+#Flask UI
 @app.route("/", methods=["GET", "POST"])
 def index():
     result = None
