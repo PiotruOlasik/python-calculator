@@ -12,6 +12,7 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 dir('python-calculator') {
+                    sh 'pip install --upgrade pip'
                     sh 'pip install -r requirements.txt'
                 }
             }
@@ -20,9 +21,18 @@ pipeline {
         stage('Run tests') {
             steps {
                 dir('python-calculator') {
-                    sh 'pytest'
+                    sh 'pytest test_main.py --maxfail=1 --disable-warnings --exitfirst'
                 }
             }
+        }
+    }
+
+    post {
+        failure {
+            echo 'Build failed. Check test output and fix.'
+        }
+        success {
+            echo 'All tests passed. Great job!'
         }
     }
 }
