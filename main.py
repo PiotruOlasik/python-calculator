@@ -1,4 +1,4 @@
-# main.py
+# main.py plik glowny
 from flask import Flask, render_template, request
 app = Flask(__name__)
 
@@ -15,6 +15,7 @@ def divide(a, b):
     if b == 0:
         raise ValueError("Nie można dzielić przez zero!")
     return a / b
+
 
 @app.route("/", methods=["GET", "POST"])
 def index():
