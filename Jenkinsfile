@@ -12,8 +12,12 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 dir('python-calculator') {
-                    sh 'pip install --upgrade pip'
-                    sh 'pip install -r requirements.txt'
+                    sh '''
+                        python3 -m venv venv
+                        . venv/bin/activate
+                        pip install --upgrade pip
+                        pip install -r requirements.txt
+                    '''
                 }
             }
         }
@@ -21,7 +25,10 @@ pipeline {
         stage('Run tests') {
             steps {
                 dir('python-calculator') {
-                    sh 'pytest test_main.py --maxfail=1 --disable-warnings --exitfirst'
+                    sh '''
+                        . venv/bin/activate
+                        pytest test_main.py --maxfail=1 --disable-warnings --exitfirst
+                    '''
                 }
             }
         }
@@ -36,3 +43,4 @@ pipeline {
         }
     }
 }
+
