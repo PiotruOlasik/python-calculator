@@ -5,7 +5,7 @@ pipeline {
         stage('Clone') {
             steps {
                 sh 'rm -rf python-calculator'
-                sh 'git clone https://github.com/Grzywocz-W/python-calculator.git'
+                sh 'git clone https://github.com/PiotruOlasik/python-calculator.git'
             }
         }
 
